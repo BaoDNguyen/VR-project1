@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="248cd325-2e91-463f-b823-71468a1858fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/VR-project1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/aframe.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +42,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1600891208711</updated>
-      <workItem from="1600891210506" duration="384000" />
+      <workItem from="1600891210506" duration="1184000" />
     </task>
     <servers />
   </component>
