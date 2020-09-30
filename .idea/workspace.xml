@@ -33,6 +33,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -43,10 +49,23 @@
       <option name="presentableId" value="Default" />
       <updated>1600891208711</updated>
       <workItem from="1600891210506" duration="1184000" />
+      <workItem from="1600895080343" duration="2297000" />
+      <workItem from="1600903253980" duration="967000" />
+      <workItem from="1601150172233" duration="2082000" />
+      <workItem from="1601324677433" duration="9818000" />
+      <workItem from="1601415948974" duration="16857000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="0" y="300" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601439713711">
+      <screen x="0" y="23" width="1680" height="956" />
+    </state>
+    <state x="0" y="299" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.952@0.23.1680.952" timestamp="1601416393359" />
+    <state x="0" y="301" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.954@0.23.1680.954" timestamp="1601153273876" />
+    <state x="0" y="300" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.956@0.23.1680.956" timestamp="1601439713711" />
   </component>
 </project>
