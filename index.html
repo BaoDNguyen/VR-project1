@@ -6,6 +6,7 @@
 
 <!--lib here-->
     <script src="src/aframe.min.js"></script>
+    <script src="src/aframe-extras.min.js"></script>
     <script src="src/d3.min.js"></script>
 <!--end lib-->
 
@@ -19,16 +20,45 @@
     <!--camera-->
     <a-sky color="#ECECEC"></a-sky>
     <a-entity position="0 0 0">
-        <a-camera universal-controls id="camera">
-            <a-entity raycaster="far: 5; objects: .intersectable" cursor geometry="primitive: ring; radiusOuter: 0.015;
-                              radiusInner: 0.01; segmentsTheta: 32" material="color: #283644; shader: flat" position="0 0 0"></a-entity>
+        <a-camera universal-controls>
+            <a-entity raycaster="far: 150; objects: .intersectable" cursor geometry="primitive: ring; radiusOuter: 0.015; radiusInner: 0.01; segmentsTheta: 32" material="color: #FF0000; shader: flat" position="0 0 -0.75"></a-entity>
         </a-camera>
     </a-entity>
 
     <!--LIGHT-->
-    <a-entity geometry="primitive: box; depth:1;height:0.1;width:0.5" material="shader: flat" light="type: point; intensity: 10; distance: 50; decay: 2" position="0 4.95 -5"></a-entity>
-    <a-entity geometry="primitive: box; depth:1;height:0.1;width:0.5" material="shader: flat" light="type: point; intensity: 10; distance: 50; decay: 2" position="0 4.95 5"></a-entity>
+    <a-entity geometry="primitive: box; depth:1;height:0.1;width:0.5" material="shader: flat" position="3 4.95 -6" id="lightContainer1">
+        <a-light type="point" intensity="3" distance="10" decay="2" color="#FFF" id="light1"></a-light>
+    </a-entity>
+    <a-entity geometry="primitive: box; depth:1;height:0.1;width:0.5" material="shader: flat" position="0 4.95 -6" id="lightContainer2">
+        <a-light type="point" intensity="3" distance="10" decay="2" color="#FFF" id="light2"></a-light>
+    </a-entity>
+    <a-entity geometry="primitive: box; depth:1;height:0.1;width:0.5" material="shader: flat" position="-3 4.95 -6" id="lightContainer3">
+        <a-light type="point" intensity="3" distance="10" decay="2" color="#FFF" id="light3"></a-light>
+    </a-entity>
+    <a-entity geometry="primitive: box; depth:1;height:0.1;width:0.5" material="shader: flat" position="3 4.95 -1" id="lightContainer4">
+        <a-light type="point" intensity="3" distance="10" decay="2" color="#FFF" id="light4"></a-light>
+    </a-entity>
+    <a-entity geometry="primitive: box; depth:1;height:0.1;width:0.5" material="shader: flat" position="0 4.95 -1" id="lightContainer5">
+        <a-light type="point" intensity="3" distance="10" decay="2" color="#FFF" id="light5"></a-light>
+    </a-entity>
+    <a-entity geometry="primitive: box; depth:1;height:0.1;width:0.5" material="shader: flat" position="-3 4.95 -1" id="lightContainer6">
+        <a-light type="point" intensity="3" distance="10" decay="2" color="#FFF" id="light6"></a-light>
+    </a-entity>
+    <a-entity geometry="primitive: box; depth:1;height:0.1;width:0.5" material="shader: flat" position="3 4.95 4" id="lightContainer7">
+        <a-light type="point" intensity="3" distance="10" decay="2" color="#FFF" id="light7"></a-light>
+    </a-entity>
+    <a-entity geometry="primitive: box; depth:1;height:0.1;width:0.5" material="shader: flat" position="0 4.95 4" id="lightContainer8">
+        <a-light type="point" intensity="3" distance="10" decay="2" color="#FFF" id="light8"></a-light>
+    </a-entity>
+    <a-entity geometry="primitive: box; depth:1;height:0.1;width:0.5" material="shader: flat" position="-3 4.95 4" id="lightContainer9">
+        <a-light type="point" intensity="3" distance="10" decay="2" color="#FFF" id="light9"></a-light>
+    </a-entity>
 
+    <!--Light button-->
+    <a-entity position="-4.9 2 8" rotation="-90 0 90">
+        <a-cylinder id="lightButton" material="color: yellow" height="0.2" radius="0.3" class="intersectable" cursor-listener></a-cylinder>
+        <a-box depth="0.3" height="0.205" width="0.4" src="textures/lightButton.png" material="opacity: 0.5"></a-box>
+    </a-entity>
 
     <!-- Ceiling -->
     <a-entity static-body geometry="primitive: box; depth: 20; height: 0.1; width: 10" position="0 5 0" material="shader: flat; side: double; opacity: 1;
@@ -107,8 +137,12 @@ roughness: 1; src: url(textures/door.jpg); repeat: 1 1"></a-entity>
     <a-entity gltf-model="#teacherDesk" position="-2 0 -8" rotation="0 90 0" scale="0.2 0.2 0.2"></a-entity>
 
     <!--front board-->
-    <a-entity static-body geometry="primitive: box; depth: 0.1; height: 3; width: 5" position="0 2.5 -9.95" rotation="0 0 0" material="shader: flat; side: double;
-roughness: 1; src: url(textures/frontBoard.jpg); repeat: 1 1"></a-entity>
+    <a-entity static-body geometry="primitive: box; depth: 0.1; height: 2.7; width: 4.8" position="0 2.5 -9.95" rotation="0 0 0" material="shader: flat; side: double;
+roughness: 1; src: url(textures/frontBoard.jpg); repeat: 1 1" id="frontBoard">
+    </a-entity>
+    <a-assets>
+        <video id="lectureVid" autoplay="true" loop="true" src="textures/lecVid.mp4"></video>
+    </a-assets>
 
     <!--teacher table-->
     <a-assets>
@@ -133,62 +167,69 @@ roughness: 1; src: url(textures/frontBoard.jpg); repeat: 1 1"></a-entity>
         <a-asset-item id="studentDesk" src="assets/student_desk/scene.gltf"></a-asset-item>
     </a-assets>
     <a-entity gltf-model="#studentDesk" position="-3 0.6 -4" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="-1 0.6 -4" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="1 0.6 -4" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="-1 0.6 -4" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk0"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="1 0.6 -4" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk1"></a-entity>
     <a-entity gltf-model="#studentDesk" position="3 0.6 -4" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="-3 0.6 -2" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="-1 0.6 -2" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="1 0.6 -2" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="3 0.6 -2" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="-3 0.6 -2" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk2"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="-1 0.6 -2" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk3"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="1 0.6 -2" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk4"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="3 0.6 -2" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk5"></a-entity>
     <a-entity gltf-model="#studentDesk" position="-3 0.6 0" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="-1 0.6 0" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="1 0.6 0" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="-1 0.6 0" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk6"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="1 0.6 0" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk7"></a-entity>
     <a-entity gltf-model="#studentDesk" position="3 0.6 0" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="-3 0.6 2" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="-1 0.6 2" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="1 0.6 2" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="3 0.6 2" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="-3 0.6 2" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk8"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="-1 0.6 2" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk9"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="1 0.6 2" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk10"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="3 0.6 2" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk11"></a-entity>
     <a-entity gltf-model="#studentDesk" position="-3 0.6 4" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="-1 0.6 4" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="1 0.6 4" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="-1 0.6 4" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk12"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="1 0.6 4" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk13"></a-entity>
     <a-entity gltf-model="#studentDesk" position="3 0.6 4" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="-3 0.6 6" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="-1 0.6 6" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="1 0.6 6" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
-    <a-entity gltf-model="#studentDesk" position="3 0.6 6" rotation="0 90 0" scale="0.6 0.6 0.6"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="-3 0.6 6" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk14"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="-1 0.6 6" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk15"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="1 0.6 6" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk16"></a-entity>
+    <a-entity gltf-model="#studentDesk" position="3 0.6 6" rotation="0 90 0" scale="0.6 0.6 0.6" id="desk17"></a-entity>
 
     <!--book shelf-->
     <a-assets>
         <a-asset-item id="bookShelf" src="assets/book_shelf/scene.gltf"></a-asset-item>
     </a-assets>
-    <a-entity gltf-model="#bookShelf" position="4.2 1 9" rotation="0 180 0" scale="0.03 0.03 0.02"></a-entity>
+    <a-entity gltf-model="#bookShelf" position="4.2 1 9.5" rotation="0 180 0" scale="0.03 0.03 0.01"></a-entity>
 
     <!--book-->
     <a-assets>
         <a-asset-item id="book" src="assets/old_book/scene.gltf"></a-asset-item>
     </a-assets>
-    <a-entity gltf-model="#book" position="2.9 1.8 9.4" rotation="0 90 -90" scale="0.04 0.04 0.04"></a-entity>
+    <a-entity gltf-model="#book" position="2.9 1.8 9.8" rotation="0 90 -90" scale="0.04 0.04 0.04"></a-entity>
 
     <!--clock-->
     <a-cylinder height="0.05" radius="0.5" position="0 4 9.95" rotation="0 -90 90" src="textures/clock.jpg"></a-cylinder>
-    <a-entity animation="property: rotation; to: 0 0 360; loop: true; dur: 10000" position="0 4 9.9">
-        <a-box color="black" depth="0.01" height="0.3" width="0.01" position="0 0.15 0">></a-box>
+    <a-entity position="0 4 9.9">
+        <a-animation attribute="rotation" from = '0 0 0' to="0 0 360" repeat="infinity" dur="10000"></a-animation>
+        <a-box color="black" depth="0.01" height="0.3" width="0.01" position="0 0.15 0"></a-box>
     </a-entity>
 
     <!--guitar-->
     <a-assets>
         <a-asset-item id="guitar" src="assets/classic_guitar/scene.gltf"></a-asset-item>
     </a-assets>
-    <a-entity gltf-model="#guitar" position="-4.2 1 9.8" rotation="90 180 0" scale="0.015 0.015 0.015"></a-entity>
+    <a-entity id="myGuitar" gltf-model="#guitar" position="-4.2 1 9.8" rotation="90 180 0" scale="0.015 0.015 0.015" class="intersectable" cursor-listener sound="src: url(sound/HB.mp3); on: click"></a-entity>
 
     <!--map-->
     <a-box depth="0.1" height="1.6" width="1.6" position="0 2.5 9.9" src="textures/map.jpg"></a-box>
 
 
     <!--ball-->
-    <a-sphere id="ball" src="textures/ball.png" position="-1 1 2" radius="0.2"></a-sphere>
+    <a-sphere id="ball" src="textures/ball.png" position="0 0.2 -2" radius="0.2" class="intersectable" cursor-listener>
+        <a-animation begin="click" attribute="position" from="0 0.25 -2" to= "0 0.25 -5" dur="1000"></a-animation>
+    </a-sphere>
 
-
+    <!--Covid button-->
+    <a-entity position="-4.9 2 7" rotation="-90 0 90">
+        <a-cylinder id="covidButton" material="color: pink" height="0.2" radius="0.3" class="intersectable" cursor-listener></a-cylinder>
+        <a-box depth="0.3" height="0.205" width="0.4" src="textures/covid.png" material="opacity: 0.5"></a-box>
+    </a-entity>
 
 </a-scene>
 <!--end aframe code-->

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="248cd325-2e91-463f-b823-71468a1858fb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/aframe-extras.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aframe.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/aframe.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +56,10 @@
       <workItem from="1601150172233" duration="2082000" />
       <workItem from="1601324677433" duration="9818000" />
       <workItem from="1601415948974" duration="16857000" />
+      <workItem from="1601483357073" duration="1634000" />
+      <workItem from="1601501165868" duration="371000" />
+      <workItem from="1601791907693" duration="1255000" />
+      <workItem from="1601819490221" duration="20259000" />
     </task>
     <servers />
   </component>
@@ -61,11 +67,15 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="300" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601439713711">
+    <state x="0" y="300" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601856958510">
       <screen x="0" y="23" width="1680" height="956" />
     </state>
     <state x="0" y="299" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.952@0.23.1680.952" timestamp="1601416393359" />
     <state x="0" y="301" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.954@0.23.1680.954" timestamp="1601153273876" />
-    <state x="0" y="300" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.956@0.23.1680.956" timestamp="1601439713711" />
+    <state x="0" y="300" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.956@0.23.1680.956" timestamp="1601856958510" />
+    <state x="430" y="222" width="670" height="676" key="search.everywhere.popup" timestamp="1601842046208">
+      <screen x="0" y="23" width="1680" height="956" />
+    </state>
+    <state x="430" y="222" width="670" height="676" key="search.everywhere.popup/0.23.1680.956@0.23.1680.956" timestamp="1601842046208" />
   </component>
 </project>
